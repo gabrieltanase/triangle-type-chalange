@@ -1,68 +1,82 @@
-<form>
-    <div class="form-group">
-      <label for="sideOne">Side one</label>
-      <input
-        ngModel
-        name="sideOne" 
-        #sideOne="ngModel"
-        required
-        pattern="^[+]?([1-9][0-9]*(?:[\.][0-9]*)?|0*\.0*[1-9][0-9]*)(?:[^a-z][+-][0-9]+)?$"
-        (change)="log(sideOne)"
-        type="number"
-        class="form-control" 
-        id="sideOne" 
-        aria-describedby="emailHelp" 
-        placeholder="Enter side one">
-        <div class="alert alert-danger" *ngIf="sideOne.touched && !sideOne.valid">
-          <div *ngIf="sideOne.errors.required">Please provide a value</div>
-          <div *ngIf="sideOne.errors.pattern">You must provide a valid number</div>
+<div class="row justify-content-md-center">
+  <div class="col col-lg-3">
+    <form>
+        <div class="form-group">
+          <label for="sideOne">Side one</label>
+          <input
+            ngModel
+            name="sideOne" 
+            #sideOne="ngModel"
+            required
+            pattern="^[+]?([1-9][0-9]*(?:[\.][0-9]*)?|0*\.0*[1-9][0-9]*)(?:[^a-z][+-][0-9]+)?$"
+            (change)="log(sideOne)"
+            type="number"
+            class="form-control" 
+            id="sideOne" 
+            aria-describedby="emailHelp" 
+            placeholder="Enter side one">
+            <div class="alert alert-danger" *ngIf="sideOne.touched && !sideOne.valid">
+              <div *ngIf="sideOne.errors.required">Please provide a value</div>
+              <div *ngIf="sideOne.errors.pattern">You must provide a valid number</div>
+            </div>
+            <!-- <small id="emailHelp" class="form-text text-muted">The number must be positive, int or float</small> -->
+          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
         </div>
-        <small id="emailHelp" class="form-text text-muted">The numbre must be positive, int or float</small>
-      <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-    </div>
-    <div class="form-group">
-      <label for="sideTwo">Side two</label>
-      <input
-        ngModel
-        #sideTwo="ngModel"
-        pattern="^[+]?([1-9][0-9]*(?:[\.][0-9]*)?|0*\.0*[1-9][0-9]*)(?:[^a-z][+-][0-9]+)?$"
-        required 
-        type="number"
-        name="sideTwo" 
-        class="form-control" 
-        id="sideTwo" 
-        aria-describedby="emailHelp" 
-        placeholder="Enter side two">
-        <div class="alert alert-danger" *ngIf="sideTwo.touched && !sideTwo.valid">
-          <div *ngIf="sideTwo.errors.required">Please provide a value</div>
-          <div *ngIf="sideTwo.errors.pattern">You must provide a valid number</div>
+        <div class="form-group">
+          <label for="sideTwo">Side two</label>
+          <input
+            ngModel
+            #sideTwo="ngModel"
+            pattern="^[+]?([1-9][0-9]*(?:[\.][0-9]*)?|0*\.0*[1-9][0-9]*)(?:[^a-z][+-][0-9]+)?$"
+            required 
+            type="number"
+            name="sideTwo" 
+            class="form-control" 
+            id="sideTwo" 
+            aria-describedby="emailHelp" 
+            placeholder="Enter side two">
+            <div class="alert alert-danger" *ngIf="sideTwo.touched && !sideTwo.valid">
+              <div *ngIf="sideTwo.errors.required">Please provide a value</div>
+              <div *ngIf="sideTwo.errors.pattern">You must provide a valid number</div>
+            </div>
+            <!-- <small id="emailHelp" class="form-text text-muted">The number must be positive, int or float</small> -->
         </div>
-        <small id="emailHelp" class="form-text text-muted">The numbre must be positive, int or float</small>
-      <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-    </div>
-    <div class="form-group">
-      <label for="sideThree">Side three</label>
-      <input
-        ngModel
-        #sideThree="ngModel"
-        pattern="^[+]?([1-9][0-9]*(?:[\.][0-9]*)?|0*\.0*[1-9][0-9]*)(?:[^a-z][+-][0-9]+)?$"
-        required  
-        type="number"
-        name="sideThree" 
-        class="form-control" 
-        id="sideThree" 
-        aria-describedby="emailHelp" 
-        placeholder="Enter side three">
-        <div class="alert alert-danger" *ngIf="sideThree.touched && !sideThree.valid">
-          <div *ngIf="sideThree.errors.required">Please provide a value</div>
-          <div *ngIf="sideThree.errors.pattern">You must provide a valid number</div>
+        <div class="form-group">
+          <label for="sideThree">Side three</label>
+          <input
+            ngModel
+            #sideThree="ngModel"
+            pattern="^[+]?([1-9][0-9]*(?:[\.][0-9]*)?|0*\.0*[1-9][0-9]*)(?:[^a-z][+-][0-9]+)?$"
+            required  
+            type="number"
+            name="sideThree" 
+            class="form-control" 
+            id="sideThree" 
+            aria-describedby="emailHelp" 
+            placeholder="Enter side three">
+            <div class="alert alert-danger" *ngIf="sideThree.touched && !sideThree.valid">
+              <div *ngIf="sideThree.errors.required">Please provide a value</div>
+              <div *ngIf="sideThree.errors.pattern">You must provide a valid number</div>
+            </div>
+            <!-- <small id="emailHelp" class="form-text text-muted">Positive, int or float</small> -->
         </div>
-        <small id="emailHelp" class="form-text text-muted">The numbre must be positive, int or float</small>
-      <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-    </div>
-    <div class="alert alert-danger" *ngIf="errors.errorMessage">
-      {{errors.errorMessage}}
-    </div>
-    <button type="submit" (click)="calculate(sideOne.value, sideTwo.value, sideThree.value)" class="btn btn-block btn-primary">Submit</button>
-</form>
+        <div class="alert alert-danger" *ngIf="errors.errorMessage">
+          {{errors.errorMessage}}
+        </div>
+        <button type="submit" 
+          (click)="getTriangleTypeBySides(sideOne.value, sideTwo.value, sideThree.value)" 
+          class="btn btn-block btn-primary"
+          [disabled]="(!sideThree.touched || !sideOne.touched || !sideTwo.touched) && (!sideOne.valid || !sideTwo.valid || !sideThree.valid)"
+          [ngClass]="{'btn-secondary': (!sideThree.touched || !sideOne.touched || !sideTwo.touched) && (!sideOne.valid || !sideTwo.valid || !sideThree.valid)}">Submit</button>
+    </form>
+  </div>
+</div>
 
+<div class="row justify-content-md-center">
+  <div class="col col-lg-4 my-4">
+    <div class="p-3 mb-2 bg-light" [ngClass]="{'border border-info': !!triangleType}">
+      Your triangle is <span *ngIf="!triangleType">...</span> 
+      <span class="text-success" *ngIf="!!triangleType">{{triangleType}}</span>
+    </div>
+  </div>
+</div>

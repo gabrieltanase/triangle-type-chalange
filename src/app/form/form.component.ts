@@ -5,9 +5,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss']
 })
-export class FormComponent implements OnInit {
+export class FormComponent {
   errors = {
-    test: 'de test',
+    notATraingle: 'The Sides provided does NOT make up a Triangle!',
+    notAPositiveNumber: 'Could not determine Triangle Type. Please enter only Positive Numbers',
     errorMessage: '',
     noErrorsFound: true
   };
@@ -15,44 +16,46 @@ export class FormComponent implements OnInit {
 
   constructor() { }
 
+  // TODO: REMOVE THIS
   log(x) {
     console.log(x);
   }
   /**
    * Method to  validate the sides
-   * @param side1 positive number
-   * @param side2 positive number
-   * @param side3 positive number
+   * @param side1 number
+   * @param side2 number
+   * @param side3 number
    */
   private validate(side1, side2, side3) {
-    this.errors.errorMessage = '';
+    // Sum of two lower sides must be less than side with longer length.
     if (side1 + side2 < side3) {
-      this.errors.errorMessage = 'The Sides provided does NOT make up a Triangle!';
       this.errors.noErrorsFound = false;
-      return this.errors.noErrorsFound;
+      this.errors.errorMessage = this.errors.notATraingle;
     }
-    console.log(side1, side2, side3);
+    // Calculate Triangles for only prositive numbers
+    if (side1 <= 0 || side2 <= 0 || side3 <= 0) {
+      this.errors.noErrorsFound = false;
+      this.errors.errorMessage =  this.errors.notAPositiveNumber;
+    }
+
     return this.errors.noErrorsFound;
   }
-  calculate(side1, side2, side3) {
+  /**
+   * Method to determine the Triangle Type
+   * @param side1 number
+   * @param side2 number
+   * @param side3 number
+   * @return String Triangle Type Name
+   */
+  getTriangleTypeBySides(side1, side2, side3) {
     if (this.validate(side1, side2, side3)) {
-      console.log('check what type is');
+      // Process the inputs and print the Triangle type name if it is Equilateral, ISoceles or Scalene.
       if (side1 === side2 && side2 === side3) {
-        console.log('echilateral');
         this.triangleType = 'EQUILATERAL';
       } else if (side1 === side2 || side2 === side3) {
-        console.log('isoscel');
         this.triangleType = 'ISOSCELES';
       } else {
         this.triangleType = 'SCALENE';
-        console.log('scalene');
       }
-    } else {
-
-    }
   }
-
-  ngOnInit() {
-  }
-
 }
