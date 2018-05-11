@@ -64,8 +64,8 @@
         <button type="submit" 
           (click)="getTriangleTypeBySides(sideOne.value, sideTwo.value, sideThree.value)" 
           class="btn btn-block btn-primary"
-          [disabled]="(!sideThree.touched || !sideOne.touched || !sideTwo.touched) && (!sideOne.valid || !sideTwo.valid || !sideThree.valid)"
-          [ngClass]="{'btn-secondary': (!sideThree.touched || !sideOne.touched || !sideTwo.touched) && (!sideOne.valid || !sideTwo.valid || !sideThree.valid)}">Submit</button>
+          [disabled]="(!sideThree.touched || !sideOne.touched || !sideTwo.touched) || (!sideOne.valid || !sideTwo.valid || !sideThree.valid)"
+          [ngClass]="{'btn-secondary': (!sideThree.touched || !sideOne.touched || !sideTwo.touched) || (!sideOne.valid || !sideTwo.valid || !sideThree.valid)}">Submit</button>
     </form>
   </div>
 </div>
