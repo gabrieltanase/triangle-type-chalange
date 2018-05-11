@@ -9,7 +9,6 @@
             #sideOne="ngModel"
             required
             pattern="^[+]?([1-9][0-9]*(?:[\.][0-9]*)?|0*\.0*[1-9][0-9]*)(?:[^a-z][+-][0-9]+)?$"
-            (change)="log(sideOne)"
             type="number"
             class="form-control" 
             id="sideOne" 
@@ -19,8 +18,7 @@
               <div *ngIf="sideOne.errors.required">Please provide a value</div>
               <div *ngIf="sideOne.errors.pattern">You must provide a valid number</div>
             </div>
-            <!-- <small id="emailHelp" class="form-text text-muted">The number must be positive, int or float</small> -->
-          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+            <small class="text-muted">*Only positive numbers</small>
         </div>
         <div class="form-group">
           <label for="sideTwo">Side two</label>
@@ -39,7 +37,7 @@
               <div *ngIf="sideTwo.errors.required">Please provide a value</div>
               <div *ngIf="sideTwo.errors.pattern">You must provide a valid number</div>
             </div>
-            <!-- <small id="emailHelp" class="form-text text-muted">The number must be positive, int or float</small> -->
+            <small class="text-muted">*Only positive numbers</small>
         </div>
         <div class="form-group">
           <label for="sideThree">Side three</label>
@@ -58,7 +56,7 @@
               <div *ngIf="sideThree.errors.required">Please provide a value</div>
               <div *ngIf="sideThree.errors.pattern">You must provide a valid number</div>
             </div>
-            <!-- <small id="emailHelp" class="form-text text-muted">Positive, int or float</small> -->
+            <small class="text-muted">*Only positive numbers</small>
         </div>
         <div class="alert alert-danger" *ngIf="errors.errorMessage">
           {{errors.errorMessage}}
@@ -74,8 +72,10 @@
 
 <div class="row justify-content-md-center">
   <div class="col col-lg-4 my-4">
-    <div class="p-3 mb-2 bg-light" [ngClass]="{'border border-info': !!triangleType}">
-      Your triangle is <span *ngIf="!triangleType">...</span> 
+    <div class="p-3 mb-2 bg-light" 
+        [ngClass]="{'border border-info': !!triangleType}">
+      Your triangle is 
+      <span *ngIf="!triangleType">...</span> 
       <span class="text-success" *ngIf="!!triangleType">{{triangleType}}</span>
     </div>
   </div>
